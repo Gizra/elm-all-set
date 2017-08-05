@@ -5,6 +5,8 @@ EverySet
 
 > A set of unique values. The values can be any type (not just comparables).
 
+Based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/latest), an `EverySet` can be keyed by any type.
+
 
 ## Installation
 
