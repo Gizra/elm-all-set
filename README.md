@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Gizra/Gizra/elm-all-set.svg?branch=master)](https://travis-ci.org/Gizra/Gizra/elm-all-set)
 
-StorageKey
+EverySet
 ========
 
 > A set of unique values. The values can be any type (not just comparables).
