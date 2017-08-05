@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Gizra/Gizra/elm-all-set.svg?branch=master)](https://travis-ci.org/Gizra/Gizra/elm-all-set)
+[![Build Status](https://travis-ci.org/Gizra/elm-all-set.svg?branch=master)](https://travis-ci.org/Gizra/elm-all-set)
 
 EverySet
 ========
