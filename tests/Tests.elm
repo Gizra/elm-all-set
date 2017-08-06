@@ -8,24 +8,30 @@ import Expect
 import Test exposing (..)
 
 
-set : EverySet Int
+type alias MyInt =
+    { int :
+        Int
+    }
+
+
+set : EverySet MyInt
 set =
-    EverySet.fromList <| List.range 1 100
+    EverySet.fromList <| List.map MyInt <| List.range 1 100
 
 
-setPart1 : EverySet Int
+setPart1 : EverySet MyInt
 setPart1 =
-    EverySet.fromList <| List.range 1 50
+    EverySet.fromList <| List.map MyInt <| List.range 1 50
 
 
-setPart2 : EverySet Int
+setPart2 : EverySet MyInt
 setPart2 =
-    EverySet.fromList <| List.range 51 100
+    EverySet.fromList <| List.map MyInt <| List.range 51 100
 
 
-pred : Int -> Bool
-pred x =
-    x <= 50
+pred : MyInt -> Bool
+pred { int } =
+    int <= 50
 
 
 tests : Test
@@ -49,4 +55,4 @@ tests =
                     \() -> Expect.equal ( setPart1, setPart2 ) <| EverySet.partition pred set
                 ]
     in
-    describe "Set Tests" [ queryTests, partitionTests, filterTests ]
+        describe "Set Tests" [ queryTests, partitionTests, filterTests ]
