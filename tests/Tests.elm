@@ -8,10 +8,8 @@ import Expect
 import Test exposing (..)
 
 
-type alias MyInt =
-    { int :
-        Int
-    }
+type MyInt
+    = MyInt Int
 
 
 set : EverySet MyInt
@@ -30,8 +28,8 @@ setPart2 =
 
 
 pred : MyInt -> Bool
-pred { int } =
-    int <= 50
+pred (MyInt x) =
+    x <= 50
 
 
 tests : Test
