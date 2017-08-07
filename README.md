@@ -10,7 +10,7 @@ Based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/la
 
 ## Installation
 
-`elm-package install Gizra/Gizra/elm-all-set`
+`elm-package install Gizra/elm-all-set`
 
 ## Tests
 
