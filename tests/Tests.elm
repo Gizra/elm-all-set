@@ -8,23 +8,27 @@ import Expect
 import Test exposing (..)
 
 
-set : EverySet Int
+type MyInt
+    = MyInt Int
+
+
+set : EverySet MyInt
 set =
-    EverySet.fromList <| List.range 1 100
+    EverySet.fromList <| List.map MyInt <| List.range 1 100
 
 
-setPart1 : EverySet Int
+setPart1 : EverySet MyInt
 setPart1 =
-    EverySet.fromList <| List.range 1 50
+    EverySet.fromList <| List.map MyInt <| List.range 1 50
 
 
-setPart2 : EverySet Int
+setPart2 : EverySet MyInt
 setPart2 =
-    EverySet.fromList <| List.range 51 100
+    EverySet.fromList <| List.map MyInt <| List.range 51 100
 
 
-pred : Int -> Bool
-pred x =
+pred : MyInt -> Bool
+pred (MyInt x) =
     x <= 50
 
 
