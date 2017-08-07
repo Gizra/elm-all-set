@@ -55,4 +55,4 @@ tests =
                     \() -> Expect.equal ( setPart1, setPart2 ) <| EverySet.partition pred set
                 ]
     in
-        describe "Set Tests" [ queryTests, partitionTests, filterTests ]
+    describe "Set Tests" [ queryTests, partitionTests, filterTests ]
