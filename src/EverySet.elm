@@ -3,6 +3,7 @@ module EverySet
         ( EverySet
         , diff
         , empty
+        , eq
         , filter
         , foldl
         , foldr
@@ -41,7 +42,7 @@ based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/la
 
 # Combine
 
-@docs union, intersect, diff
+@docs union, intersect, diff, eq
 
 
 # Lists
@@ -135,6 +136,12 @@ diff : EverySet a -> EverySet a -> EverySet a
 diff (EverySet d1) (EverySet d2) =
     EverySet <| EveryDict.diff d1 d2
 
+{-| The function (==) is not reliable for equality testing.
+This function is reliable, however.
+-}
+eq : EverySet a -> EverySet a -> Bool
+eq (EverySet d1) (EverySet d2) =
+    EveryDict.eq d1 d2
 
 {-| Convert a set into a list, sorted from lowest to highest.
 -}
