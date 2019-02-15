@@ -3,7 +3,7 @@
     "name": "Gizra/elm-all-set",
     "summary": "A set of unique values. The values can be any type (not just comparables).",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "EverySet"
     ],
