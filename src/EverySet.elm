@@ -1,24 +1,11 @@
-module EverySet
-    exposing
-        ( EverySet
-        , diff
-        , empty
-        , filter
-        , foldl
-        , foldr
-        , fromList
-        , insert
-        , intersect
-        , isEmpty
-        , map
-        , member
-        , partition
-        , remove
-        , singleton
-        , size
-        , toList
-        , union
-        )
+module EverySet exposing
+    ( EverySet
+    , empty, singleton, insert, remove
+    , isEmpty, member, size
+    , union, intersect, diff
+    , toList, fromList
+    , map, foldl, foldr, filter, partition
+    )
 
 {-| A set of unique values. The values can be any type, as the implementation is
 based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/latest)
@@ -55,14 +42,14 @@ based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/la
 
 -}
 
-import EveryDict exposing (EveryDict)
+import AssocList as EveryDict exposing (Dict)
 
 
 {-| Represents a set of unique values. So `(Set Int)` is a set of integers and
 `(Set String)` is a set of strings.
 -}
 type EverySet a
-    = EverySet (EveryDict a ())
+    = EverySet (Dict a ())
 
 
 {-| Create an empty set.
@@ -154,14 +141,14 @@ fromList xs =
 -}
 foldl : (a -> b -> b) -> b -> EverySet a -> b
 foldl f b (EverySet d) =
-    EveryDict.foldl (\k _ b -> f k b) b d
+    EveryDict.foldl (\k _ result -> f k result) b d
 
 
 {-| Fold over the values in a set, in order from highest to lowest.
 -}
 foldr : (a -> b -> b) -> b -> EverySet a -> b
 foldr f b (EverySet d) =
-    EveryDict.foldr (\k _ b -> f k b) b d
+    EveryDict.foldr (\k _ result -> f k result) b d
 
 
 {-| Map a function onto a set, creating a new set with no duplicates.

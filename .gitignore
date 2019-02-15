@@ -4,3 +4,5 @@ elm-stuff
 repl-temp-*
 documentation.json
 tests/Doc
+
+node_modules
