@@ -8,7 +8,7 @@ module EverySet exposing
     )
 
 {-| A set of unique values. The values can be any type, as the implementation is
-based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/latest)
+based on [AssocList](https://package.elm-lang.org/packages/pzp1997/assoc-list/latest)
 
 
 # Sets
@@ -42,7 +42,7 @@ based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/la
 
 -}
 
-import AssocList as EveryDict exposing (Dict)
+import AssocList exposing (Dict)
 
 
 {-| Represents a set of unique values. So `(Set Int)` is a set of integers and
@@ -56,63 +56,63 @@ type EverySet a
 -}
 empty : EverySet a
 empty =
-    EverySet EveryDict.empty
+    EverySet AssocList.empty
 
 
 {-| Create a set with one value.
 -}
 singleton : a -> EverySet a
 singleton k =
-    EverySet <| EveryDict.singleton k ()
+    EverySet <| AssocList.singleton k ()
 
 
 {-| Insert a value into a set.
 -}
 insert : a -> EverySet a -> EverySet a
 insert k (EverySet d) =
-    EverySet <| EveryDict.insert k () d
+    EverySet <| AssocList.insert k () d
 
 
 {-| Remove a value from a set. If the value is not found, no changes are made.
 -}
 remove : a -> EverySet a -> EverySet a
 remove k (EverySet d) =
-    EverySet <| EveryDict.remove k d
+    EverySet <| AssocList.remove k d
 
 
 {-| Determine if a set is empty.
 -}
 isEmpty : EverySet a -> Bool
 isEmpty (EverySet d) =
-    EveryDict.isEmpty d
+    AssocList.isEmpty d
 
 
 {-| Determine if a value is in a set.
 -}
 member : a -> EverySet a -> Bool
 member k (EverySet d) =
-    EveryDict.member k d
+    AssocList.member k d
 
 
 {-| Determine the number of elements in a set.
 -}
 size : EverySet a -> Int
 size (EverySet d) =
-    EveryDict.size d
+    AssocList.size d
 
 
 {-| Get the union of two sets. Keep all values.
 -}
 union : EverySet a -> EverySet a -> EverySet a
 union (EverySet d1) (EverySet d2) =
-    EverySet <| EveryDict.union d1 d2
+    EverySet <| AssocList.union d1 d2
 
 
 {-| Get the intersection of two sets. Keeps values that appear in both sets.
 -}
 intersect : EverySet a -> EverySet a -> EverySet a
 intersect (EverySet d1) (EverySet d2) =
-    EverySet <| EveryDict.intersect d1 d2
+    EverySet <| AssocList.intersect d1 d2
 
 
 {-| Get the difference between the first set and the second. Keeps values
@@ -120,14 +120,14 @@ that do not appear in the second set.
 -}
 diff : EverySet a -> EverySet a -> EverySet a
 diff (EverySet d1) (EverySet d2) =
-    EverySet <| EveryDict.diff d1 d2
+    EverySet <| AssocList.diff d1 d2
 
 
 {-| Convert a set into a list, sorted from lowest to highest.
 -}
 toList : EverySet a -> List a
 toList (EverySet d) =
-    EveryDict.keys d
+    AssocList.keys d
 
 
 {-| Convert a list into a set, removing any duplicates.
@@ -141,14 +141,14 @@ fromList xs =
 -}
 foldl : (a -> b -> b) -> b -> EverySet a -> b
 foldl f b (EverySet d) =
-    EveryDict.foldl (\k _ result -> f k result) b d
+    AssocList.foldl (\k _ result -> f k result) b d
 
 
 {-| Fold over the values in a set, in order from highest to lowest.
 -}
 foldr : (a -> b -> b) -> b -> EverySet a -> b
 foldr f b (EverySet d) =
-    EveryDict.foldr (\k _ result -> f k result) b d
+    AssocList.foldr (\k _ result -> f k result) b d
 
 
 {-| Map a function onto a set, creating a new set with no duplicates.
@@ -162,7 +162,7 @@ map f s =
 -}
 filter : (a -> Bool) -> EverySet a -> EverySet a
 filter p (EverySet d) =
-    EverySet <| EveryDict.filter (\k _ -> p k) d
+    EverySet <| AssocList.filter (\k _ -> p k) d
 
 
 {-| Create two new sets; the first consisting of elements which satisfy a
@@ -172,6 +172,6 @@ partition : (a -> Bool) -> EverySet a -> ( EverySet a, EverySet a )
 partition p (EverySet d) =
     let
         ( p1, p2 ) =
-            EveryDict.partition (\k _ -> p k) d
+            AssocList.partition (\k _ -> p k) d
     in
     ( EverySet p1, EverySet p2 )
