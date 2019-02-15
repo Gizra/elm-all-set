@@ -1,4 +1,4 @@
-module Tests exposing (..)
+module Tests exposing (MyInt(..), pred, set, setPart1, setPart2, tests)
 
 {-| All tests copie and adapted from Elm core.
 -}
