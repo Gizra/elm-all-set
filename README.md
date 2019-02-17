@@ -5,7 +5,7 @@ EverySet
 
 > A set of unique values. The values can be any type (not just comparables).
 
-Based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/latest), an `EverySet` can be keyed by any type.
+Based on [AssocList](https://package.elm-lang.org/packages/pzp1997/assoc-list/latest/), an `EverySet` can be keyed by any type.
 
 
 ## Installation
@@ -16,4 +16,4 @@ Based on [EveryDict](http://package.elm-lang.org/packages/eeue56/elm-all-dict/la
 
 Install package: `npm install -g elm-test`
 
-Execute tests: `./execute-tests`
+Execute tests: `elm-test`
