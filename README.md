@@ -10,7 +10,7 @@ Based on [AssocList](https://package.elm-lang.org/packages/pzp1997/assoc-list/la
 
 ## Installation
 
-`elm-package install Gizra/elm-all-set`
+`elm install Gizra/elm-all-set`
 
 ## Tests
 
